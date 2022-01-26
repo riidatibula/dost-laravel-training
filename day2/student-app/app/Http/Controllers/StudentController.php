@@ -78,6 +78,41 @@ class StudentController extends Controller
 
     public function grades()
     {
-        return view('student.grades');
+        $grades = [
+            [
+                'subject' => 'Differential Equations',
+                'mid_term' => '1.00',
+                'final_term' => '1.00',
+                'average' => '1.00'
+            ],
+            [
+                'subject' => 'Coding and Number Theory',
+                'mid_term' => '1.25',
+                'final_term' => '1.00',
+                'average' => '1.125'
+            ],
+            [
+                'subject' => 'Discrete Geometry and Combinatorics',
+                'mid_term' => '1.00',
+                'final_term' => '1.00',
+                'average' => '1.00'
+            ],
+            [
+                'subject' => 'Groups, Geometry, and Representations',
+                'mid_term' => '1.25',
+                'final_term' => '1.00',
+                'average' => '1.125'
+            ],
+            [
+                'subject' => 'Mathematical Finance and Actuarial Science',
+                'mid_term' => '1.00',
+                'final_term' => '1.00',
+                'average' => '1.00'
+            ]
+        ];
+
+        return view('student.grades', [
+            'grades' => $grades
+        ]);
     }
 }
