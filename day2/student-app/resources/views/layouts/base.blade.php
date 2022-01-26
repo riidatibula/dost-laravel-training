@@ -41,9 +41,9 @@
                     </button>
                     <div class="collapse navbar-collapse" id="navbarNav">
                         <div class="navbar-nav ms-auto">
-                            <a class="nav-link active" href="#">Enrolled Subjects</a>
-                            <a class="nav-link active" href="#">Grades</a>
-                            <a class="nav-link active" href="#">Profile</a>
+                            <a class="nav-link active" href="{{ route('enrolled_subjects') }}">Enrolled Subjects</a>
+                            <a class="nav-link active" href="{{ route('grades') }}">Grades</a>
+                            <a class="nav-link active" href="{{ route('profile') }}">Profile</a>
                         </div>
                     </div>
                 </div>

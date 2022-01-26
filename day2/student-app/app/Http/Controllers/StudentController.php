@@ -20,7 +20,20 @@ class StudentController extends Controller
 
     public function myProfile()
     {
-        return view('student.profile');
+        $student_info = [
+            'name' => 'Augusta Ada King-Noel',
+            'student_id' => '444-212',
+            'year_level' => 2,
+            'course' => 'BS Mathematics',
+            'birth_date' => 'December 10, 1815',
+            'address' => 'London, United Kingdom',
+            'email' => 'ada@gmail.com',
+            'phone' => '09972123211'
+        ];
+
+        return view('student.profile', [
+            'student_info' => $student_info
+        ]);
     }
 
     public function grades()
