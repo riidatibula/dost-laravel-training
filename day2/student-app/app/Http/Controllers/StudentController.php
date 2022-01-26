@@ -15,7 +15,47 @@ class StudentController extends Controller
 
     public function enrolledSubjects()
     {
-        return view('student.enrolled_subjects');
+        $subjects = [
+            [
+                'name' => 'Differential Equations',
+                'schedule' => 'MWF',
+                'time' => '8:00AM-9:30AM',
+                'room' => 'Room 101',
+                'instructor' => 'John Doe'
+            ],
+            [
+                'name' => 'Coding and Number Theory',
+                'schedule' => 'TF',
+                'time' => '8:00AM-9:30AM',
+                'room' => 'Room 203',
+                'instructor' => 'Jane'
+            ],
+            [
+                'name' => 'Discrete Geometry and Combinatorics',
+                'schedule' => 'W',
+                'time' => '1:00PM-02:30PM',
+                'room' => 'TBA',
+                'instructor' => 'Charles'
+            ],
+            [
+                'name' => 'Groups, Geometry, and Representations',
+                'schedule' => 'MWF',
+                'time' => '9:30AM-10:30AM',
+                'room' => 'TBA',
+                'instructor' => 'Jeremy'
+            ],
+            [
+                'name' => 'Mathematical Finance and Actuarial Science',
+                'schedule' => 'TF',
+                'time' => '9:30AM-10:30AM',
+                'room' => 'TBA',
+                'instructor' => 'Dr. Paul'
+            ]
+        ]; 
+
+        return view('student.enrolled_subjects', [
+            'subjects' => $subjects
+        ]);
     }
 
     public function myProfile()

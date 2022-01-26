@@ -5,7 +5,7 @@
     <div class="container-fluid profile">
         <div class="row">
             <div class="col">
-                <h1>Profile Page</h1>
+                <h1>Profile</h1>
             </div>
         </div>
         <div class="row">
