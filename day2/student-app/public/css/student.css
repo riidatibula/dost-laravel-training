@@ -1,4 +1,4 @@
-.home, .profile  {
+.home, .profile, .enrolled-subjects, .grades  {
     max-width: 1200px;
     margin: 180px 70px 180px 70px;
 }
