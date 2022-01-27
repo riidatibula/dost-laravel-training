@@ -22,10 +22,10 @@
 </head>
 <body>
     <div id="app">
-        @if (Route::currentRouteName() != 'home')
+        @if (Route::currentRouteName() != 'student-home' && Route::currentRouteName() != 'home')
             <nav class="navbar fixed-top navbar-dark bg-dark navbar-expand-lg">
                 <div class="container-fluid">
-                    <a class="navbar-brand" href="{{ route('home') }}">
+                    <a class="navbar-brand" href="{{ route('student-home') }}">
                         Home
                     </a>
                     <button 

@@ -21,9 +21,14 @@ use App\Http\Controllers\StudentController;
 
 Auth::routes();
 
-// Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Route::get('/', [StudentController::class, 'home'])->name('home');
-Route::get('/profile', [StudentController::class, 'myProfile'])->name('profile');
-Route::get('/enrolled-subjects', [StudentController::class, 'enrolledSubjects'])->name('enrolled_subjects');
-Route::get('/grades', [StudentController::class, 'grades'])->name('grades');
+Route::prefix('student-app')->group(function() {
+    Route::get('/home', [StudentController::class, 'home'])->name('student-home');
+    Route::get('/profile', [StudentController::class, 'myProfile'])->name('profile');
+    Route::get('/enrolled-subjects', [StudentController::class, 'enrolledSubjects'])->name('enrolled_subjects');
+    Route::get('/grades', [StudentController::class, 'grades'])->name('grades');
+});
+
+
+
