@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\StudentController;
+use App\Http\Controllers\CategoryController; 
 
 /*
 |--------------------------------------------------------------------------
@@ -28,6 +29,10 @@ Route::prefix('student-app')->group(function() {
     Route::get('/profile', [StudentController::class, 'myProfile'])->name('profile');
     Route::get('/enrolled-subjects', [StudentController::class, 'enrolledSubjects'])->name('enrolled_subjects');
     Route::get('/grades', [StudentController::class, 'grades'])->name('grades');
+});
+
+Route::prefix('product-inventory-app')->group(function() {
+    Route::get('/home', [CategoryController::class, 'index'])->name('pi-app-home');
 });
 
 

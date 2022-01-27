@@ -27,7 +27,7 @@
                <a href="{{ route('student-home') }}">Day 2 - Student App</a> 
             </li>
             <li>
-                <a href="">Day 3 - Product Inventory App</a>
+                <a href="{{ route('pi-app-home') }}">Day 3 - Product Inventory App</a>
             </li>
         </ul>
     </div>
