@@ -3,7 +3,7 @@
 @section('content')
 
     <div class="container-fluid">
-        <div class="home">
+        <div class="content">
             <div class="row mb-2">
                 <div class="col">
                     <h3>Explore Categories</h3>
@@ -19,8 +19,9 @@
                 <div class="col">
                     <div class="card">
                         <div class="card-body">
-                            <h5 class="card-title">{{ $category['name'] }}</h5>
-                            <span class="badge bg-primary">{{ $category->products->count() }} Products</span>
+                            <a href="{{ route('category-info', ['id' => $category->id ]) }}" class="category-link">
+                            <h5 class="card-title">{{ $category->name }}</h5>
+                            <span class="badge bg-primary">{{ $category->products->count() }} Products</span></a>
                         </div>
                     </div>
                 </div>

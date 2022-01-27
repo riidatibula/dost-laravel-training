@@ -3,7 +3,7 @@
 @section('content')
 
     <div class="container-fluid">
-        <div class="home">
+        <div class="content">
             <div class="row mb-2">
                 <div class="col">
                     <h3>Explore Categories and Products</h3>
@@ -19,7 +19,8 @@
                 <div class="col">
                     <div class="card">
                         <div class="card-body">
-                            <h5 class="card-title">{{ $category['name'] }}</h5><hr>
+                            <a href="{{ route('category-info', ['id' => $category->id ]) }}" class="category-link">
+                            <h5 class="card-title">{{ $category['name'] }}</h5></a><hr>
 
                             <ul class="mt-2">
                                 @foreach ($category->products as $product)

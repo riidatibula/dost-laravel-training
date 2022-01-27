@@ -22,7 +22,7 @@
 </head>
 <body>
     <div id="app">
-        <nav class="navbar fixed-top navbar-dark bg-dark navbar-expand-lg">
+        <!-- <nav class="navbar fixed-top navbar-dark bg-dark navbar-expand-lg">
             <div class="container-fluid">
                 <a class="navbar-brand" href="{{ route('pi-app-home') }}">
                     Home
@@ -45,7 +45,7 @@
                     </div>
                 </div>
             </div>
-        </nav>
+        </nav> -->
 
         <main class="py-4">
             @yield('content')

@@ -34,6 +34,7 @@ Route::prefix('student-app')->group(function() {
 Route::prefix('product-inventory-app')->group(function() {
     Route::get('/home', [CategoryController::class, 'index'])->name('pi-app-home');
     Route::get('/show-products', [CategoryController::class, 'showProducts'])->name('show-products');
+    Route::get('/category/{id}', [CategoryController::class, 'show'])->name('category-info');
 });
 
 

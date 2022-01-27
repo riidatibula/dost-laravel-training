@@ -23,4 +23,11 @@ class CategoryController extends Controller
             'categories' => $categories
         ]);
     }
+
+    public function show($id)
+    {
+        return view('product-inventory.category.category_info', [
+            'category' => Category::findOrFail($id)
+        ]);
+    }
 }
