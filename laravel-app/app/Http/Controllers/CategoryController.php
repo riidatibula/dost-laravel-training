@@ -13,4 +13,14 @@ class CategoryController extends Controller
             'categories' => Category::all()
         ]);
     }
+
+    public function showProducts()
+    {
+        $categories = Category::with('products')
+            ->get();
+
+        return view('product-inventory.category.show_products', [
+            'categories' => $categories
+        ]);
+    }
 }
