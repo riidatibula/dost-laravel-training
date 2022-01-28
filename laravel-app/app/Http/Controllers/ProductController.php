@@ -23,4 +23,11 @@ class ProductController extends Controller
             'products' => $products
         ]);
     }
+
+    public function show($id)
+    {
+        return view('product-inventory.product.product_info', [
+            'product' => Product::findOrFail($id)
+        ]);
+    }
 }

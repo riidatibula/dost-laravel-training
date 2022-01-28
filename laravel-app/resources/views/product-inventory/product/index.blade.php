@@ -19,7 +19,7 @@
                 <div class="col">
                     <div class="card mt-2">
                         <div class="card-body">
-                            <a href="#" class="product-link">
+                            <a href="{{ route('product-info', ['id' => $product->id ]) }}" class="product-link">
                             <h5 class="card-title">{{ $product->name }}</h5></a>
                             <p class="card-text">{{ $product->description }}</p>
                             <span class="badge bg-success">₱ {{ $product->price }} each</span>

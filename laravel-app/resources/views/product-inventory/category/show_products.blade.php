@@ -25,7 +25,8 @@
                             <ul class="mt-2">
                                 @foreach ($category->products as $product)
                                 <li>
-                                    {{ $product->name }}
+                                    <a href="{{ route('product-info', ['id' => $product->id]) }}" class="product-link">
+                                    {{ $product->name }}</a>
                                 </li>
                                 @endforeach
                             </ul>

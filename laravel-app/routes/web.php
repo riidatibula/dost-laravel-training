@@ -38,7 +38,7 @@ Route::prefix('product-inventory-app')->group(function() {
     Route::get('/category/{id}', [CategoryController::class, 'show'])->name('category-info');
     Route::get('/products', [ProductController::class, 'index'])->name('products');
     Route::get('/show-category', [ProductController::class, 'showCategory'])->name('show-category');
-    // Route::get('/category/{id}', [CategoryController::class, 'show'])->name('category-info');
+    Route::get('/product/{id}', [ProductController::class, 'show'])->name('product-info');
 });
 
 

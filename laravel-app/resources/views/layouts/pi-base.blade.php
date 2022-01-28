@@ -40,8 +40,8 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <div class="navbar-nav ms-auto">
-                        <a class="nav-link active" href="{{ route('pi-app-home') }}">Categories</a>
-                        <a class="nav-link active" href="{{ route('products') }}">Products</a>
+                        <a class="nav-link active" href="{{ route('pi-app-home') }}">All Categories</a>
+                        <a class="nav-link active" href="{{ route('products') }}">All Products</a>
                     </div>
                 </div>
             </div>
