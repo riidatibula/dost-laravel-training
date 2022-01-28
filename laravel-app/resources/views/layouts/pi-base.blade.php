@@ -22,7 +22,7 @@
 </head>
 <body>
     <div id="app">
-        <!-- <nav class="navbar fixed-top navbar-dark bg-dark navbar-expand-lg">
+        <nav class="navbar fixed-top navbar-dark bg-dark navbar-expand-lg">
             <div class="container-fluid">
                 <a class="navbar-brand" href="{{ route('pi-app-home') }}">
                     Home
@@ -40,12 +40,12 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <div class="navbar-nav ms-auto">
-                        <a class="nav-link active" href="#">Categories</a>
-                        <a class="nav-link active" href="#">Products</a>
+                        <a class="nav-link active" href="{{ route('pi-app-home') }}">Categories</a>
+                        <a class="nav-link active" href="{{ route('products') }}">Products</a>
                     </div>
                 </div>
             </div>
-        </nav> -->
+        </nav>
 
         <main class="py-4">
             @yield('content')
