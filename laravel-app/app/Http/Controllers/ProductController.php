@@ -15,6 +15,18 @@ class ProductController extends Controller
         ]);
     }
 
+    public function search(Request $request){
+        $key = $request->key;
+
+        $products = Product::with('category')
+            ->where('name', 'like', "%{$key}%")
+            ->get();
+
+        return view('product-inventory.product.index', [
+            'products' => $products
+        ]);
+    }
+
     public function showCategory()
     {
         $products = Product::with('category')

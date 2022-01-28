@@ -8,6 +8,14 @@
                 <div class="col">
                     <h3>Explore Products</h3>
                 </div>
+                <div class="col">
+                    <form action="{{ route('product-search') }}" method="GET">
+                        <div class="input-group">
+                            <input type="text" name="key" class="form-control" placeholder="Product Name" aria-label="Search Key" aria-describedby="Search Key">
+                            <button type="submit" class="btn btn-outline-secondary" type="button" id="search">Search</button>
+                        </div>
+                    </form>
+                </div>
                 <div class="col" align="end">
                     <a href="{{ route('product-create') }}" class="btn btn-sm btn-outline-success">
                         Add Product
