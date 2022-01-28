@@ -59,4 +59,19 @@ class ProductController extends Controller
 
         return redirect()->route('products');
     }
+
+    public function confirmDelete($id)
+    {
+        return view('product-inventory.product.confirm_delete', [
+            'product' => Product::findOrFail($id)
+        ]);
+    }
+
+    public function delete($id)
+    {
+        $product = Product::findOrFail($id);
+        $product->delete();
+
+        return redirect()->route('products');
+    }
 }
