@@ -48,4 +48,20 @@ class CategoryController extends Controller
 
         return redirect()->route('pi-app-home');
     }
+
+    public function confirmDelete($id)
+    {
+        return view('product-inventory.category.confirm_delete', [
+            'category' => Category::findOrFail($id)
+        ]);
+    }
+
+    public function delete($id)
+    {
+        $category = Category::findOrFail($id);
+        $category->delete();
+
+        return redirect()->route('pi-app-home');
+    }
+
 }

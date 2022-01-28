@@ -9,6 +9,12 @@
                     <h3>Category: {{ $category->name }}</h3>
                 </div>
                 <div class="col" align="end">
+                    <a href="{{ route('category-confirm-delete', ['id' => $category->id]) }}" class="btn btn-sm btn-outline-danger">
+                        Delete Category
+                    </a>
+                    <a href="{{ route('pi-app-home') }}" class="btn btn-sm btn-outline-success">
+                        Add Product
+                    </a>
                     <a href="{{ route('pi-app-home') }}" class="btn btn-sm btn-secondary">
                         View All Categories
                     </a>

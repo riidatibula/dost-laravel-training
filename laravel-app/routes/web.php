@@ -38,6 +38,8 @@ Route::prefix('product-inventory-app')->group(function() {
     Route::get('/category/{id}', [CategoryController::class, 'show'])->name('category-info');
     Route::get('/add-category', [CategoryController::class, 'create'])->name('category-create');
     Route::post('/save', [CategoryController::class, 'store'])->name('category-save');
+    Route::get('/confirm-delete/{id}', [CategoryController::class, 'confirmDelete'])->name('category-confirm-delete');
+    Route::get('/delete-category/{id}', [CategoryController::class, 'delete'])->name('delete-category');
 
     Route::get('/products', [ProductController::class, 'index'])->name('products');
     Route::get('/show-category', [ProductController::class, 'showCategory'])->name('show-category');
