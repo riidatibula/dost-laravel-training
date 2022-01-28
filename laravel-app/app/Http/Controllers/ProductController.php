@@ -13,4 +13,14 @@ class ProductController extends Controller
             'products' => Product::all()
         ]);
     }
+
+    public function showCategory()
+    {
+        $products = Product::with('category')
+            ->get();
+
+        return view('product-inventory.product.show_category', [
+            'products' => $products
+        ]);
+    }
 }

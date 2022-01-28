@@ -6,35 +6,29 @@
         <div class="content">
             <div class="row mb-2">
                 <div class="col">
-                    <h3>{{ $category->name }}</h3>
+                    <h3>Category: {{ $category->name }}</h3>
                 </div>
                 <div class="col" align="end">
-                    <a href="{{ route('pi-app-home') }}" class="btn btn-sm btn-primary">
+                    <a href="{{ route('pi-app-home') }}" class="btn btn-sm btn-secondary">
                         View All Categories
                     </a>
                 </div>
             </div>
-            <table class="table table-responsive table-sm table-striped caption-top">
-                <caption>Products</caption>
-                <thead>
-                    <tr>
-                        <th>Name</th>
-                        <th>Description</th>
-                        <th>Quantity</th>
-                        <th>Price</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    @foreach ($category->products as $product)
-                        <tr>
-                            <td>{{ $product->name }}</td>
-                            <td>{{ $product->description }}</td>
-                            <td>{{ $product->quantity }}</td>
-                            <td>{{ $product->price }}</td>
-                        </tr>
-                    @endforeach
-                </tbody>
-            </table>
+            <div class="row row-cols-5 mb-2">
+                @foreach ($category->products as $product)
+                <div class="col">
+                    <div class="card mt-2">
+                        <div class="card-body">
+                            <a href="#" class="product-link">
+                            <h5 class="card-title">{{ $product->name }}</h5></a>
+                            <p class="card-text">{{ $product->description }}</p>
+                            <span class="badge bg-success">₱ {{ $product->price }} each</span>
+                            <span class="badge bg-info text-dark">{{ $product->quantity }} items remaining</span>
+                        </div>
+                    </div>
+                </div>
+                @endforeach
+            </div>
         </div>
     </div>
 @endsection

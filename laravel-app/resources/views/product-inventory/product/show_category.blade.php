@@ -6,11 +6,11 @@
         <div class="content">
             <div class="row">
                 <div class="col">
-                    <h3>Explore Products</h3>
+                    <h3>Explore Products and Categories</h3>
                 </div>
                 <div class="col" align="end">
-                    <a href="{{ route('show-category') }}" class="btn btn-sm btn-secondary">
-                        Show Category
+                    <a href="{{ route('products') }}" class="btn btn-sm btn-secondary">
+                        Hide Category
                     </a>
                 </div>
             </div>
@@ -24,6 +24,7 @@
                             <p class="card-text">{{ $product->description }}</p>
                             <span class="badge bg-success">₱ {{ $product->price }} each</span>
                             <span class="badge bg-info text-dark">{{ $product->quantity }} items remaining</span>
+                            <span class="badge bg-secondary">Category: {{ $product->category->name }}</span>
                         </div>
                     </div>
                 </div>
