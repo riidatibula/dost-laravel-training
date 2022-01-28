@@ -4,7 +4,7 @@
 
     <div class="container-fluid">
         <div class="content">
-            <div class="row mb-2">
+            <div class="row">
                 <div class="col">
                     <h3>Explore Categories</h3>
                 </div>
@@ -14,10 +14,10 @@
                     </a>
                 </div>
             </div>
-            <div class="row row-cols-5 mb-2">
+            <div class="row row-cols-5">
                 @foreach ($categories as $category)
                 <div class="col">
-                    <div class="card">
+                    <div class="card border-primary mt-2">
                         <div class="card-body">
                             <a href="{{ route('category-info', ['id' => $category->id ]) }}" class="category-link">
                             <h5 class="card-title">{{ $category->name }}</h5>

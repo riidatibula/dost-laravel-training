@@ -17,7 +17,7 @@
             <div class="row row-cols-5 mb-2">
                 @foreach ($products as $product)
                 <div class="col">
-                    <div class="card mt-2">
+                    <div class="card border-success mt-2">
                         <div class="card-body">
                             <a href="{{ route('product-info', ['id' => $product->id]) }}" class="product-link">
                             <h5 class="card-title">{{ $product->name }}</h5></a>

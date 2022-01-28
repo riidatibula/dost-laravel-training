@@ -17,7 +17,7 @@
             <div class="row row-cols-5 mb-2">
                 @foreach ($categories as $category)
                 <div class="col">
-                    <div class="card">
+                    <div class="card border-primary">
                         <div class="card-body">
                             <a href="{{ route('category-info', ['id' => $category->id ]) }}" class="category-link">
                             <h5 class="card-title">{{ $category['name'] }}</h5></a><hr>
