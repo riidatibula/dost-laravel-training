@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Product;
+use App\Models\Category;
 
 class ProductController extends Controller
 {
@@ -29,5 +30,33 @@ class ProductController extends Controller
         return view('product-inventory.product.product_info', [
             'product' => Product::findOrFail($id)
         ]);
+    }
+
+    public function create()
+    {
+        return view('product-inventory.product.create', [
+            'categories' => Category::all()
+        ]);
+    }
+
+    public function store(Request $request)
+    {
+        $data = $request->validate([
+            'category_id' => 'required|integer',
+            'name' => 'required|string',
+            'quantity' => 'required|integer',
+            'price' => 'required|integer',
+            'description' => 'required|string'
+        ]);
+
+        $product = new Product();
+        $product->category_id = $data['category_id'];
+        $product->name = $data['name'];
+        $product->quantity = $data['quantity'];
+        $product->price = $data['price'];
+        $product->description = $data['description'];
+        $product->save();
+
+        return redirect()->route('products');
     }
 }

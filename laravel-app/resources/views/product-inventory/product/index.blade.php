@@ -9,6 +9,9 @@
                     <h3>Explore Products</h3>
                 </div>
                 <div class="col" align="end">
+                    <a href="{{ route('product-create') }}" class="btn btn-sm btn-outline-success">
+                        Add Product
+                    </a>
                     <a href="{{ route('show-category') }}" class="btn btn-sm btn-secondary">
                         Show Category
                     </a>
