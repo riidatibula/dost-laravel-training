@@ -36,6 +36,9 @@ Route::prefix('product-inventory-app')->group(function() {
     Route::get('/home', [CategoryController::class, 'index'])->name('pi-app-home');
     Route::get('/show-products', [CategoryController::class, 'showProducts'])->name('show-products');
     Route::get('/category/{id}', [CategoryController::class, 'show'])->name('category-info');
+    Route::get('/add-category', [CategoryController::class, 'create'])->name('category-create');
+    Route::post('/save', [CategoryController::class, 'store'])->name('category-save');
+
     Route::get('/products', [ProductController::class, 'index'])->name('products');
     Route::get('/show-category', [ProductController::class, 'showCategory'])->name('show-category');
     Route::get('/product/{id}', [ProductController::class, 'show'])->name('product-info');

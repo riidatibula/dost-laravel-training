@@ -30,4 +30,22 @@ class CategoryController extends Controller
             'category' => Category::findOrFail($id)
         ]);
     }
+
+    public function create()
+    {
+        return view('product-inventory.category.create');
+    }
+
+    public function store(Request $request)
+    {
+        $data = $request->validate([
+            'name' => 'required|string'
+        ]);
+
+        $category = new Category();
+        $category->name = $data['name'];
+        $category->save();
+
+        return redirect()->route('pi-app-home');
+    }
 }

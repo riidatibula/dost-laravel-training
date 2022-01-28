@@ -9,6 +9,9 @@
                     <h3>Explore Categories</h3>
                 </div>
                 <div class="col" align="end">
+                    <a href="{{ route('category-create') }}" class="btn btn-sm btn-secondary">
+                        Add New Category
+                    </a>
                     <a href="{{ route('show-products') }}" class="btn btn-sm btn-secondary">
                         Show Products
                     </a>
