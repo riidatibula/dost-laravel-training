@@ -7,9 +7,9 @@
             <div class="row justify-content-center">
                 <div class="col-5">
                     <div class="card">
-                        <h5 class="card-header" align="center">{{ $product->name }}</h5>
                         <div class="card-body">
-                            <p class="card-text">Product Category: {{ $product->category->name }}</p>
+                            <h4 class="card-title">Name: {{ $product->name }}</h4>
+                            <h6 class="card-subtitle mb-3 text-muted">Product Category: {{ $product->category->name }}</h6><hr>
                             <p class="card-text">Description: {{ $product->description }}</p>
                             <p class="card-text">Unit Price: ₱{{ $product->price }}</p>
                             <p class="card-text">Remaining Quantity: {{ $product->quantity }}</p>
