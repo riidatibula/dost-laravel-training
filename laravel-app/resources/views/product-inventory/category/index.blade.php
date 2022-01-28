@@ -9,7 +9,7 @@
                     <h3>Explore Categories</h3>
                 </div>
                 <div class="col" align="end">
-                    <a href="{{ route('category-create') }}" class="btn btn-sm btn-secondary">
+                    <a href="{{ route('category-create') }}" class="btn btn-sm btn-outline-primary">
                         Add New Category
                     </a>
                     <a href="{{ route('show-products') }}" class="btn btn-sm btn-secondary">
@@ -20,7 +20,7 @@
             <div class="row row-cols-5">
                 @foreach ($categories as $category)
                 <div class="col">
-                    <div class="card border-primary mt-2">
+                    <div class="card border-primary mt-3">
                         <div class="card-body">
                             <a href="{{ route('category-info', ['id' => $category->id ]) }}" class="category-link">
                             <h5 class="card-title">{{ $category->name }}</h5>
