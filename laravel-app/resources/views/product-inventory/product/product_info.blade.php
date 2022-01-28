@@ -17,8 +17,9 @@
                             </p>
                             <div class="row">
                                 <div class="col" align="end">
-                                    <a href="{{ route('pi-app-home') }}" class="btn btn-sm btn-primary">Explore Other Products</a>
-                                    <a href="{{ route('product-confirm-delete', ['id' => $product->id]) }}" class="btn btn-sm btn-danger">Delete Product</a>
+                                    <a href="{{ route('pi-app-home') }}" class="btn btn-sm btn-outline-secondary">Explore Other Products</a>
+                                    <a href="{{ route('edit-product', ['id' => $product->id]) }}" class="btn btn-sm btn-outline-primary">Edit</a>
+                                    <a href="{{ route('product-confirm-delete', ['id' => $product->id]) }}" class="btn btn-sm btn-outline-danger">Delete Product</a>
                                 </div>
                             </div>
                         </div>

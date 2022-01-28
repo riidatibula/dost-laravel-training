@@ -74,4 +74,34 @@ class ProductController extends Controller
 
         return redirect()->route('products');
     }
+
+    public function edit($id)
+    {
+        return view('product-inventory.product.edit', [
+            'product' => Product::findOrFail($id),
+            'categories' => Category::all()
+        ]);
+    }
+
+    public function update(Request $request, $id)
+    {
+        $data = $request->validate([
+            'category_id' => 'required|integer',
+            'name' => 'required|string',
+            'quantity' => 'required|integer',
+            'price' => 'required|integer',
+            'description' => 'required|string'
+        ]);
+
+        $product = Product::findOrFail($id);
+        $product->category_id = $data['category_id'];
+        $product->name = $data['name'];
+        $product->quantity = $data['quantity'];
+        $product->price = $data['price'];
+        $product->description = $data['description'];
+        $product->save();
+
+        return redirect()
+            ->route('product-info', ['id' => $product->id]);
+    }
 }

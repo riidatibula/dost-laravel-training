@@ -84,5 +84,4 @@ class CategoryController extends Controller
         return redirect()
             ->route('category-info', ['id' => $category->id]);
     }
-
 }

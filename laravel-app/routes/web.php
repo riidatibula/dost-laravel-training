@@ -50,6 +50,8 @@ Route::prefix('product-inventory-app')->group(function() {
     Route::post('/save-product', [ProductController::class, 'store'])->name('product-save');
     Route::get('/confirm-delete-product/{id}', [ProductController::class, 'confirmDelete'])->name('product-confirm-delete');
     Route::get('/delete-product/{id}', [ProductController::class, 'delete'])->name('delete-product');
+    Route::get('/edit-product/{id}', [ProductController::class, 'edit'])->name('edit-product');
+    Route::post('/update-product/{id}', [ProductController::class, 'update'])->name('product-update');
 });
 
 

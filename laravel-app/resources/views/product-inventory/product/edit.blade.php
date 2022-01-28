@@ -8,37 +8,40 @@
                 <div class="col-5">
                     <div class="card">
                         <div class="card-body">
-                            <form action="{{ route('product-save') }}" method="POST">
+                            <form action="{{ route('product-update', ['id' => $product->id]) }}" method="POST">
                                 @csrf
-                                <h4 class="card-title">Add New Product</h4>
+                                <h4 class="card-title">Edit Product</h4>
                                 <div class="input-group mb-3 mt-3">
                                     <label class="input-group-text" for="categorySelect">Category</label>
                                     <select class="form-select" id="categorySelect" name="category_id">
+                                        <option value="{{ $product->category->id }}" selected>{{ $product->category->name }}</option>
                                         @foreach ($categories as $category)
-                                        <option value="{{ $category->id }}">{{ $category->name }}</option>
+                                            @if ($category->id != $product->category->id)
+                                            <option value="{{ $category->id }}">{{ $category->name }}</option>
+                                            @endif
                                         @endforeach
                                     </select>
                                 </div>
                                 <div class="input-group mb-3">
                                     <span class="input-group-text" id="product-name">Name</span>
-                                    <input type="text" class="form-control" aria-describedby="product-name" name="name" required>
+                                    <input type="text" class="form-control" aria-describedby="product-name" name="name" value="{{ $product->name }}" required>
                                 </div>
                                 <div class="input-group mb-3">
                                     <span class="input-group-text" id="quantity">Quantity</span>
-                                    <input type="number" class="form-control" aria-describedby="quantity" name="quantity" required>
+                                    <input type="number" class="form-control" aria-describedby="quantity" name="quantity" value="{{ $product->quantity }}" required>
                                 </div>
                                 <div class="input-group mb-3">
                                     <span class="input-group-text" id="price">Price</span>
-                                    <input type="number" class="form-control" aria-describedby="price" name="price" step="0.01" min="0" required>
+                                    <input type="number" class="form-control" aria-describedby="price" name="price" step="0.01" min="0" value="{{ $product->price }}" required>
                                 </div>
                                 <div class="input-group mb-3">
                                     <span class="input-group-text" id="description">Description</span>
-                                    <input type="text" class="form-control" aria-describedby="description" name="description" required>
+                                    <input type="text" class="form-control" aria-describedby="description" name="description" value="{{ $product->description }}" required>
                                 </div>
                                 <div class="row">
                                     <div class="col" align="end">
-                                        <a href="{{ route('products') }}" class="btn btn-sm btn-outline-danger">Cancel</a>
-                                        <button class="btn btn-sm btn-outline-success">Add</button>
+                                        <a href="{{ route('product-info', ['id' => $product->id]) }}" class="btn btn-sm btn-danger">Cancel</a>
+                                        <button class="btn btn-sm btn-success">Update</button>
                                     </div>
                                 </div>
                             </form>

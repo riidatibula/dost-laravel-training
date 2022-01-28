@@ -13,7 +13,7 @@
                                 <h4 class="card-title">Edit Category</h4>
                                 <div class="input-group mb-2 mt-3">
                                     <span class="input-group-text" id="category-name">Name</span>
-                                    <input type="text" class="form-control" aria-describedby="category-name" name="name" placeholder="{{ $category->name }}" required>
+                                    <input type="text" class="form-control" aria-describedby="category-name" name="name" value="{{ $category->name }}" required>
                                 </div>
                                 <div class="row">
                                     <div class="col" align="end">
