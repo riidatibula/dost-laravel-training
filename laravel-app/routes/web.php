@@ -42,6 +42,7 @@ Route::prefix('product-inventory-app')->group(function() {
     Route::get('/delete-category/{id}', [CategoryController::class, 'delete'])->name('delete-category');
     Route::get('/edit-category/{id}', [CategoryController::class, 'edit'])->name('category-edit');
     Route::post('/update-category/{id}', [CategoryController::class, 'update'])->name('category-update');
+    Route::get('/search', [CategoryController::class, 'search'])->name('category-search');
 
     Route::get('/products', [ProductController::class, 'index'])->name('products');
     Route::get('/show-category', [ProductController::class, 'showCategory'])->name('show-category');

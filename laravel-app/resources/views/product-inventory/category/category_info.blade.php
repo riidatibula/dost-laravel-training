@@ -15,9 +15,6 @@
                     <a href="{{ route('category-edit', ['id' => $category->id]) }}" class="btn btn-sm btn-outline-primary">
                         Rename
                     </a>
-                    <a href="{{ route('pi-app-home') }}" class="btn btn-sm btn-outline-success">
-                        Add Product
-                    </a>
                     <a href="{{ route('pi-app-home') }}" class="btn btn-sm btn-secondary">
                         View All Categories
                     </a>

@@ -14,6 +14,19 @@ class CategoryController extends Controller
         ]);
     }
 
+
+    public function search(Request $request){
+        $key = $request->key;
+
+        $categories = Category::with('products')
+            ->where('name', 'like', "%{$key}%")
+            ->get();
+
+        return view('product-inventory.category.index', [
+            'categories' => $categories
+        ]);
+    }
+
     public function showProducts()
     {
         $categories = Category::with('products')

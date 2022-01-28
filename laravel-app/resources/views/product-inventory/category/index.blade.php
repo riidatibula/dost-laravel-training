@@ -8,6 +8,14 @@
                 <div class="col">
                     <h3>Explore Categories</h3>
                 </div>
+                <div class="col">
+                    <form action="{{ route('category-search') }}" method="GET">
+                        <div class="input-group">
+                            <input type="text" name="key" class="form-control" placeholder="Category Name" aria-label="Search Key" aria-describedby="Search Key">
+                            <button type="submit" class="btn btn-outline-secondary" type="button" id="search">Search</button>
+                        </div>
+                    </form>
+                </div>
                 <div class="col" align="end">
                     <a href="{{ route('category-create') }}" class="btn btn-sm btn-outline-primary">
                         Add New Category
