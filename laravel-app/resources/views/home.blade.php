@@ -29,6 +29,9 @@
             <li>
                 <a href="{{ route('pi-app-home') }}">Day 3 - Product Inventory App</a>
             </li>
+            <li>
+                <a href="{{ route('vue-app') }}">Day 5 - Vue Product App</a>
+            </li>
         </ul>
     </div>
 

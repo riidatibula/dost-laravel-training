@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\StudentController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\API\APIProductController;
 
 /*
 |--------------------------------------------------------------------------
@@ -54,6 +55,12 @@ Route::prefix('product-inventory-app')->group(function() {
     Route::get('/edit-product/{id}', [ProductController::class, 'edit'])->name('edit-product');
     Route::post('/update-product/{id}', [ProductController::class, 'update'])->name('product-update');
     Route::get('/product-search', [ProductController::class, 'search'])->name('product-search');
+
+    Route::get('/vue-app', [ProductController::class, 'vueapp'])->name('vue-app');
+});
+
+Route::prefix('/api')->group(function() {
+    Route::get('/', [APIProductController::class, 'index'])->name('index');
 });
 
 

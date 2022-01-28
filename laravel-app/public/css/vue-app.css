@@ -1,0 +1,8 @@
+.content {
+    margin: 100px 70px 180px 70px;
+}
+
+.category-link, .product-link {
+    text-decoration: none;
+    color: black;
+}

@@ -15,6 +15,11 @@ class ProductController extends Controller
         ]);
     }
 
+    public function vueapp()
+    {
+        return view('vueapp');
+    }
+
     public function search(Request $request){
         $key = $request->key;
 
