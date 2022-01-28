@@ -10,7 +10,10 @@
                 </div>
                 <div class="col" align="end">
                     <a href="{{ route('category-confirm-delete', ['id' => $category->id]) }}" class="btn btn-sm btn-outline-danger">
-                        Delete Category
+                        Delete
+                    </a>
+                    <a href="{{ route('category-edit', ['id' => $category->id]) }}" class="btn btn-sm btn-outline-primary">
+                        Rename
                     </a>
                     <a href="{{ route('pi-app-home') }}" class="btn btn-sm btn-outline-success">
                         Add Product

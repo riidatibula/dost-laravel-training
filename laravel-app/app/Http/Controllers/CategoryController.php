@@ -64,4 +64,25 @@ class CategoryController extends Controller
         return redirect()->route('pi-app-home');
     }
 
+    public function edit($id)
+    {
+        return view('product-inventory.category.edit', [
+            'category' => Category::findOrFail($id)
+        ]);
+    }
+
+    public function update(Request $request, $id)
+    {
+        $data = $request->validate([
+            'name' => 'required|string'
+        ]);
+
+        $category = Category::findOrFail($id);
+        $category->name = $data['name'];
+        $category->save();
+
+        return redirect()
+            ->route('category-info', ['id' => $category->id]);
+    }
+
 }
