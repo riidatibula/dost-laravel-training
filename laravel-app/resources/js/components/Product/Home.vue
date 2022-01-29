@@ -17,7 +17,6 @@
                     :categories="categories"
                     @update-products="updateProducts"
                 >
-                    
                 </AddProduct>
             </div>
         </div>
@@ -29,7 +28,8 @@
                 :description="product.description"
                 :quantity="product.quantity"
                 :price="product.price"
-                :category="product.category.name"
+                :category="product.category"
+                :categories="categories"
             >
             </ProductCard>
         </div>
