@@ -20,19 +20,12 @@
                 </AddProduct>
             </div>
         </div>
-        <div class="row row-cols-5 mb-2">
-        	<ProductCard
-                v-for="product in products"
-                :key="product.id"
-                :name="product.name"
-                :description="product.description"
-                :quantity="product.quantity"
-                :price="product.price"
-                :category="product.category"
-                :categories="categories"
-            >
-            </ProductCard>
-        </div>
+    	<ProductCard
+            :products="products"
+            :categories="categories"
+            @update-products="updateProducts"
+        >
+        </ProductCard>
     </div>
 </template>
 

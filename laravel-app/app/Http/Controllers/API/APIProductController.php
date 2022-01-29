@@ -43,7 +43,29 @@ class APIProductController extends Controller
         return response()->json([
             'product' => $product
         ]);
+    }
 
-        // return redirect()->route('vue-app');
+    public function updateProduct(Request $request)
+    {
+        $data = $request->validate([
+            'id' => 'required|integer',
+            'category_id' => 'required|integer',
+            'name' => 'required|string',
+            'quantity' => 'required|integer',
+            'price' => 'required|integer',
+            'description' => 'required|string'
+        ]);
+
+        $product = Product::findOrFail($data['id']);
+        $product->category_id = $data['category_id'];
+        $product->name = $data['name'];
+        $product->quantity = $data['quantity'];
+        $product->price = $data['price'];
+        $product->description = $data['description'];
+        $product->save();
+
+        return response()->json([
+            'product' => $product
+        ]);
     }
 }
