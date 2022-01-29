@@ -64,6 +64,7 @@ Route::prefix('/api')->group(function() {
     Route::post('/create', [APIProductController::class, 'addProduct'])->name('create');
     Route::post('/update', [APIProductController::class, 'updateProduct'])->name('update');
     Route::post('/delete', [APIProductController::class, 'deleteProduct'])->name('delete');
+    Route::get('/search/{key}', [APIProductController::class, 'search']);
 });
 
 

@@ -22570,7 +22570,8 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
   data: function data() {
     return {
       products: [],
-      categories: []
+      categories: [],
+      searchKey: ''
     };
   },
   methods: {
@@ -22601,6 +22602,48 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     },
     updateProducts: function updateProducts() {
       this.fetchProducts();
+    },
+    searchProduct: function searchProduct() {
+      var _this2 = this;
+
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee2() {
+        var res;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee2$(_context2) {
+          while (1) {
+            switch (_context2.prev = _context2.next) {
+              case 0:
+                if (!(_this2.searchKey.length == 0)) {
+                  _context2.next = 3;
+                  break;
+                }
+
+                _this2.fetchProducts();
+
+                return _context2.abrupt("return");
+
+              case 3:
+                _context2.prev = 3;
+                _context2.next = 6;
+                return axios__WEBPACK_IMPORTED_MODULE_1___default().get("/api/search/".concat(_this2.searchKey));
+
+              case 6:
+                res = _context2.sent;
+                _this2.products = res.data.products;
+                _context2.next = 13;
+                break;
+
+              case 10:
+                _context2.prev = 10;
+                _context2.t0 = _context2["catch"](3);
+                console.log('Error=>', _context2.t0);
+
+              case 13:
+              case "end":
+                return _context2.stop();
+            }
+          }
+        }, _callee2, null, [[3, 10]]);
+      }))();
     }
   },
   created: function created() {
@@ -22963,29 +23006,13 @@ var _hoisted_3 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementV
 /* HOISTED */
 );
 
-var _hoisted_4 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+var _hoisted_4 = {
   "class": "col"
-}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("form", {
-  action: "#",
-  method: "GET"
-}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
-  "class": "input-group"
-}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
-  type: "text",
-  name: "key",
-  "class": "form-control",
-  placeholder: "Product Name",
-  "aria-label": "Search Key",
-  "aria-describedby": "Search Key"
-}), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
-  type: "submit",
-  "class": "btn btn-outline-secondary",
-  id: "search"
-}, "Search")])])], -1
-/* HOISTED */
-);
-
+};
 var _hoisted_5 = {
+  "class": "input-group"
+};
+var _hoisted_6 = {
   "class": "col",
   align: "end"
 };
@@ -22994,7 +23021,24 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
 
   var _component_ProductCard = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("ProductCard");
 
-  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_2, [_hoisted_3, _hoisted_4, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_5, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_AddProduct, {
+  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_2, [_hoisted_3, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_4, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_5, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
+    type: "text",
+    "onUpdate:modelValue": _cache[0] || (_cache[0] = function ($event) {
+      return $data.searchKey = $event;
+    }),
+    "class": "form-control",
+    placeholder: "Product Name",
+    "aria-label": "Search Key",
+    "aria-describedby": "Search Key"
+  }, null, 512
+  /* NEED_PATCH */
+  ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $data.searchKey]]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
+    onClick: _cache[1] || (_cache[1] = function ($event) {
+      return $options.searchProduct();
+    }),
+    "class": "btn btn-outline-secondary",
+    id: "search"
+  }, "Search")])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_6, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_AddProduct, {
     categories: $data.categories,
     onUpdateProducts: $options.updateProducts
   }, null, 8

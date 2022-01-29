@@ -22,6 +22,18 @@ class APIProductController extends Controller
         ]);
     }
 
+    public function search($key){
+        $products = Product::with('category')
+            ->where('name', 'like', "%$key%")
+            ->orWhere('description', 'like', "%$key%")
+            ->get();
+            
+
+        return response()->json([
+            'products' => $products
+        ]);
+    }
+
     public function addProduct(Request $request)
     {
         $data = $request->validate([
