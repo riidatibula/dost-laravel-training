@@ -13,16 +13,18 @@
                 </form>
             </div>
             <div class="col" align="end">
-                <a href="#" class="btn btn-sm btn-outline-success">
-                    Add Product
-                </a>
-                <a href="#" class="btn btn-sm btn-secondary">
-                    Show Category
-                </a>
+                <AddProduct
+                    :categories="categories"
+                    @update-products="updateProducts"
+                >
+                    
+                </AddProduct>
             </div>
         </div>
         <div class="row row-cols-5 mb-2">
-        	<ProductCard v-for="product in products" :key="product.id"
+        	<ProductCard
+                v-for="product in products"
+                :key="product.id"
                 :name="product.name"
                 :description="product.description"
                 :quantity="product.quantity"
@@ -37,21 +39,28 @@
 <script>
 	import axios from 'axios';
     import ProductCard from './ProductCard.vue';
+    import AddProduct from './AddProduct.vue';
 
     export default {
         components: {
-            ProductCard
+            ProductCard,
+            AddProduct
         },
         data() {
         	return {
-        		products: []
+        		products: [],
+                categories: []
         	}
         },
         methods: {
         	async fetchProducts() {
         		let res = await axios.get('/api');
         		this.products = res.data.products;
-        	}
+                this.categories = res.data.categories;
+        	},
+            updateProducts() {
+                this.fetchProducts();
+            }
         },
         created() {
         	this.fetchProducts();
