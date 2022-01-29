@@ -68,4 +68,18 @@ class APIProductController extends Controller
             'product' => $product
         ]);
     }
+
+    public function deleteProduct(Request $request)
+    {
+        $data = $request->validate([
+            'product_id' => 'required|integer',
+        ]);
+
+        $product = Product::findOrFail($data['product_id']);
+        $product->delete();
+
+        return response()->json([
+            'message' => 'success'
+        ]);
+    }
 }

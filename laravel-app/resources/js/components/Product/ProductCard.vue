@@ -18,7 +18,7 @@
 	                    	data-bs-toggle="modal" data-bs-target="#editProductModal">
 	                    		<span class="badge bg-secondary">Edit</span>
 	                    	</a>
-	                    	<a href="#" type="button"
+	                    	<a @click="selectProduct(product)" type="button"
 	                    	data-bs-toggle="modal" data-bs-target="#deleteProductModal">
 	                    		<span class="badge bg-danger">Delete</span>
 	                    	</a>
@@ -101,22 +101,32 @@
 	</div>
 
 	<!-- Delete Modal -->
-	<!-- <div class="modal fade" id="deleteProductModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
+	<div class="modal fade" id="deleteProductModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
 		<div class="modal-dialog">
 			<div class="modal-content">
-				<div class="modal-header">
-					<h5 class="modal-title" id="deleteModalLabel">Delete Product</h5>
-					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+				<form @submit.prevent="deleteProduct">
+					<div class="modal-header">
+						<h5 class="modal-title" id="deleteModalLabel">Are you sure?</h5>
+						<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+						</div>
+					<div class="modal-body">
+						<p>You're about the delete the following product. Press the delete button to continue.</p>
+						<p>
+							Product name: {{ this.product.name }}<br>
+							Category: {{ this.product.category.name }}<br>
+		                	Description: {{ this.product.description }}<br>
+		                	Price: ₱ {{ this.product.price }} each<br>
+		                	Quantity: {{ this.product.quantity }} items remaining
+						</p>
 					</div>
-				<div class="modal-body">
-					...
-				</div>
-				<div class="modal-footer">
-					<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-				</div>
+					<div class="modal-footer">
+						<button type="submit" class="btn btn-danger" data-bs-dismiss="modal">Delete</button>
+						<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+					</div>
+				</form>
 			</div>
 		</div>
-	</div> -->
+	</div>
 </template>
 
 <script>
@@ -172,6 +182,13 @@
                 let res = await axios.post('/api/update', product);
                 console.log(res);
                 this.$.emit('update-products');
+        	},
+
+        	async deleteProduct() {
+        		const payload = {product_id: this.product.id}
+        		let res = await axios.post('/api/delete', payload);
+        		console.log(res);
+        		this.$.emit('update-products');
         	}
         },
         created() {

@@ -63,6 +63,7 @@ Route::prefix('/api')->group(function() {
     Route::get('/', [APIProductController::class, 'index'])->name('index');
     Route::post('/create', [APIProductController::class, 'addProduct'])->name('create');
     Route::post('/update', [APIProductController::class, 'updateProduct'])->name('update');
+    Route::post('/delete', [APIProductController::class, 'deleteProduct'])->name('delete');
 });
 
 
